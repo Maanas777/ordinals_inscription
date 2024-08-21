@@ -1,0 +1,2 @@
+This is a test inscription for Ordinals. 
+Testing with sample text data to ensure proper functionality.
