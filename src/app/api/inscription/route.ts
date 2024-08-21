@@ -1,9 +1,9 @@
-// app/api/inscription/route.ts
+
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
-    // Parse the incoming JSON request
+    
     const { files, receiveAddress, fee } = await req.json();
     
     if (!files || !files.length) {
@@ -14,17 +14,9 @@ export async function POST(req: NextRequest) {
     const { name, dataURL, type } = file;
        
 
-    // Extract Base64 data from dataURL
-    const base64Data = dataURL.split(',')[1]; // Remove the prefix (e.g., "data:image/png;base64,")
+   
+    const base64Data = dataURL.split(',')[1]; 
     
-    // Log and process data
-    // console.log('File Name:', name);
-    // console.log('File Type:', type);
-    // console.log('Base64 Data:', base64Data);
-    // console.log('Receive Address:', receiveAddress);
-    // console.log('Fee:', fee);
-
-
     const payload={
      
         files:[
@@ -33,7 +25,7 @@ export async function POST(req: NextRequest) {
                 type:type,
                 name:name,
                 dataURL:`data:${file.type};base64,${base64Data}`,
-                
+
             }
 
         ],
